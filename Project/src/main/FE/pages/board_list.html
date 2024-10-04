@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토벌 의뢰 게시판</title>
+    <link href="../css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="board_list.html">토벌 의뢰 게시판</a></li>
+                <li><a href="about.html">소개</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>토벌 의뢰 게시판</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>닉네임</th>
+                    <th>토벌 상태</th>
+                    <th>날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td><a href="board_view.html?id=3">위험한 골렘 토벌 요청</a></td>
+                    <td>용사킴</td>
+                    <td><span class="status waiting">의뢰 대기</span></td>
+                    <td>2024-10-04</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="board_view.html?id=2">숲의 요정 수집 의뢰</a></td>
+                    <td>마법사철수</td>
+                    <td><span class="status accepted">의뢰 수락</span></td>
+                    <td>2024-10-03</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><a href="board_view.html?id=1">드래곤 둥지 탐사</a></td>
+                    <td>궁수영희</td>
+                    <td><span class="status completed">의뢰 완료</span></td>
+                    <td>2024-10-02</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="board_write.html" class="btn">글쓰기</a>
+    </main>
+
+    <footer>
+        <p>&copy; Jungle. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

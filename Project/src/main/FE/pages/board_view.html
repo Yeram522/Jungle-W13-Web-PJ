@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토벌 의뢰</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/board_view.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="board_list.html">게시판</a></li>
+                <li><a href="about.html">소개</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post">
+            <h1 class="post-title">게시물 제목</h1>
+            <div class="post-meta">
+                <span class="author">작성자: 홍길동</span>
+                <span class="date">작성일: 2024-10-04</span>
+            </div>
+            <div class="post-content">
+                <p>여기에 게시물 내용이 들어갑니다. 실제 게시물의 내용은 데이터베이스에서 가져와 동적으로 표시됩니다.</p>
+            </div>
+        </article>
+
+        <section class="comments">
+            <h2>댓글</h2>
+            <ul class="comment-list">
+                <li class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">김철수</span>
+                        <span class="comment-date">2024-10-04 14:30</span>
+                    </div>
+                    <p class="comment-content">첫 번째 댓글입니다.</p>
+                    <div class="comment-actions">
+                        <button class="btn btn-edit">수정</button>
+                        <button class="btn btn-delete">삭제</button>
+                    </div>
+                </li>
+                <li class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">이영희</span>
+                        <span class="comment-date">2024-10-04 15:45</span>
+                    </div>
+                    <p class="comment-content">두 번째 댓글입니다.</p>
+                    <div class="comment-actions">
+                        <button class="btn btn-edit">수정</button>
+                        <button class="btn btn-delete">삭제</button>
+                    </div>
+                </li>
+            </ul>
+
+            <form class="comment-form">
+                <textarea name="comment" id="comment" rows="4" placeholder="댓글을 입력하세요" required></textarea>
+                <button type="submit" class="btn btn-submit">댓글 게시</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Jungle. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/board_view.js"></script>
+</body>
+</html>
