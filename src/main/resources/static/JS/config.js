@@ -16,6 +16,7 @@ const API_ENDPOINTS = {
     SIGNUP: createApiEndpoint('/users/signup'),
     LOGIN: createApiEndpoint('/users/login'),
     USERS : createApiEndpoint('/users'),
+    POSTS : createApiEndpoint('/posts')
     // 다른 엔드포인트들...
 };
 
