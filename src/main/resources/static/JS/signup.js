@@ -1,11 +1,11 @@
+import { API_ENDPOINTS } from './config.js';
 // static variable
 // 중복확인 체크를 했는지 확인. 중복확인을 누른상태에서 input란이 없데이트 되면 갱신되어야한다.
 var duplename = false;
 var dupleemail = false;
 
 async function dupleCheck(input, type) {
-    const route = type ? "duplicate" : "username-duplicate";
-    const url = `http://localhost:8080/users/${input}/${route}`;
+    const url = API_ENDPOINTS.USERS + `/${input}/${type ? "duplicate" : "username-duplicate"}`;
 
     try {
         const response = await fetch(url, {
@@ -209,9 +209,8 @@ function isStrongPassword(password) {
 }
 
 async function sendUserInfoToServer(userInfo) {
-    const url = 'http://localhost:8080/users/signup';
     try {
-        const response = await fetch(url, {
+        const response = await fetch(API_ENDPOINTS.SIGUP, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userInfo)

@@ -1,10 +1,10 @@
+import { API_ENDPOINTS } from './config.js';
 async function login(username, password) {
-  const url = 'http://localhost:8080/users/login';  // Spring 서버 URL 사용
 
   const loginData = { "email" : username,  "password" :password };
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(API_ENDPOINTS.LOGIN, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginData)
