@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/users")
 public class MemberController {
 
     private final MemberService memberService;
@@ -38,6 +38,8 @@ public class MemberController {
 
     @PostMapping("login")
     public ApiResponse<Object> login(@RequestBody MemberDtos.MemberLoginDto loginDto) {
+        System.out.println(loginDto.getEmail());
+        System.out.println(loginDto.getPassword());
         boolean isSuccessful = memberService.login(loginDto);
         return ApiResponse.ofSuccess(isSuccessful);
     }

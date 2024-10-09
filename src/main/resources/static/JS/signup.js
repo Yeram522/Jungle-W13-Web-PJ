@@ -126,18 +126,18 @@ document.getElementById('signUp').addEventListener('click', async (event) => {
         alert('모든 필드를 입력해주세요.');
         return;
     }
-    //
-    // // 2. Check if username and email are not duplicates
-    // if (!duplename) {
-    //     alert('이름 중복 확인을 해주세요');
-    //     return;
-    // }
-    //
-    // if (!dupleemail) {
-    //     alert('이메일 중복 확인을 해주세요.');
-    //     return;
-    // }
-    //
+
+    // 2. Check if username and email are not duplicates
+    if (!duplename) {
+        alert('이름 중복 확인을 해주세요');
+        return;
+    }
+
+    if (!dupleemail) {
+        alert('이메일 중복 확인을 해주세요.');
+        return;
+    }
+
     // 3. Additional validations (예: 이메일 형식, 비밀번호 강도)
     if (!isValidEmail(emailInput.value)) {
         alert('유효한 이메일 주소를 입력해주세요.');
