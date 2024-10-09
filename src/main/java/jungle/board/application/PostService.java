@@ -20,7 +20,7 @@ public class PostService {
     @Transactional
     public boolean createPost(PostDtos.PostRequest request) {
         Post post = new Post(request.getPostTitle(), request.getPostContent());
-        Post savedPost = postRepository.save(post);
+        postRepository.save(post);
         return true;
     }
 
