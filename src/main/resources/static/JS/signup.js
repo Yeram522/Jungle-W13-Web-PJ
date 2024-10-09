@@ -5,7 +5,6 @@ async function dupleCheck(input) {
         const response = await fetch(url, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
-            // GET 요청에는 body가 필요 없으므로 제거합니다
         });
 
         if (!response.ok) {
@@ -18,7 +17,7 @@ async function dupleCheck(input) {
         return data;
     } catch(error) {
         console.error('Duplicate check error:', error);
-        return { success: false, error: error.message };
+        return { successful: false, error: error.message };
     }
 }
 
@@ -26,7 +25,7 @@ function showDuplicateResult(type){
     var formgroup = document.querySelector('#signupForm').children[type];
 
     // 이미 중복 메세지가 떠있다면 뜨지 않는다.
-    if(formgroup.querySelector('.' + className) != null)
+    if(formgroup.querySelector('.duplicateCheckMsg') != null)
         return;
 
     const name = (type == 0 ? "닉네임" : "이메일");
@@ -48,7 +47,7 @@ function showDuplicateResult(type){
 function removeDuplicateResult(type){
     // 중복이 아닌데 중복메세지가 떠있다면 지워준다.
     var formgroup = document.querySelector('#signupForm').children[type];
-    var msg = formgroup.querySelector('.' + className);
+    var msg = formgroup.querySelector('.duplicateCheckMsg');
     if(msg != null){
       formgroup.removeChild(msg)
     }
@@ -62,7 +61,7 @@ document.getElementById('nameDuplecheck').addEventListener('click', async (event
     const result = await dupleCheck(username);
     if (result.successful) {
       console.log('name ok');
-      //removeDuplicateResult(0);
+      removeDuplicateResult(0);
     } else {
       console.log('name duplicate', result.message);
 
@@ -79,7 +78,7 @@ document.getElementById('emailDuplecheck').addEventListener('click', async (even
     const result = await dupleCheck(username);
     if (result.successful) {
       console.log('email ok');
-      //removeDuplicateResult(1);
+      removeDuplicateResult(1);
     } else {
       console.log('email duplicate:', result.message);
       showDuplicateResult(1);
