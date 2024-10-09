@@ -21,7 +21,7 @@ async function login(username, password) {
 
   } catch (error) {
     console.error('Login error:', error);
-    return { successful: false, message: error.message };
+    return { data: false, message: error.message };
   }
 }
 
@@ -32,7 +32,7 @@ document.getElementById('btnLogin').addEventListener('click', async (event) => {
   const password = document.getElementById('password').value;
 
   const result = await login(username, password);
-  if (result.successful) {
+  if (result.data) {
     console.log('Login successful');
     window.location.href = "pages/board_list.html";
   } else {

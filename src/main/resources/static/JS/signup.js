@@ -66,7 +66,7 @@ document.getElementById('nameDuplecheck').addEventListener('click', async (event
     if(username == "") return;
 
     const result = await dupleCheck(username);
-    if (result.successful) {
+    if (result.data) {
       console.log('name ok');
       duplename = true;
       removeDuplicateResult(0);
@@ -102,7 +102,7 @@ document.getElementById('emailDuplecheck').addEventListener('click', async (even
     if(email == "") return;
 
     const result = await dupleCheck(email);
-    if (result.successful) {
+    if (result.data) {
       console.log('email ok');
       dupleemail = true;
       removeDuplicateResult(1);
@@ -160,8 +160,8 @@ document.getElementById('signUp').addEventListener('click', async (event) => {
             username: nameInput.value,
             password: passwordInput.value
         });
-        console.log('서버로부터 응답', response.successful);
-        if (response.successful) {
+        console.log('서버로부터 응답', response.data);
+        if (response.data) {
             alert('회원가입이 완료되었습니다!');
             // 추가 작업 (예: 로그인 페이지로 리다이렉트)
             window.close();
@@ -171,7 +171,7 @@ document.getElementById('signUp').addEventListener('click', async (event) => {
         }
     } catch (error) {
         console.error('회원가입 요청 중 오류 발생:', error);
-        return { successful: false, message: error.message };
+        return { data: false, message: error.message };
     }
 });
 
