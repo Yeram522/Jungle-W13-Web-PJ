@@ -1,7 +1,9 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
+// ES 모듈 구문으로 변경된 server.js
+import jsonServer from 'json-server';
+
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
 
 server.use(middlewares)
 
@@ -9,7 +11,7 @@ server.use(middlewares)
 server.use(jsonServer.bodyParser)
 
 // 커스텀 라우트 추가
-server.post('/users/login', (req, res) => {
+server.post('/api/v1/users/login', (req, res) => {
     // 클라이언트로부터 받은 정보를 콘솔에 출력
     console.log('Received login request:')
     console.log(JSON.stringify(req.body, null, 2))
@@ -20,7 +22,7 @@ server.post('/users/login', (req, res) => {
 
 
 // Check duplicate : username
-server.get('/users/:input/username-duplicate', (req, res) => {
+server.get('/api/v1/users/:input/username-duplicate', (req, res) => {
     const input = req.params.input;
     console.log('Received duplicate check request for:', input);
 
@@ -32,7 +34,7 @@ server.get('/users/:input/username-duplicate', (req, res) => {
 });
 
 // Check duplicate : email
-server.get('/users/:input/duplicate', (req, res) => {
+server.get('/api/v1/users/:input/duplicate', (req, res) => {
     const input = req.params.input;
     console.log('Received duplicate check request for:', input);
 
@@ -45,7 +47,7 @@ server.get('/users/:input/duplicate', (req, res) => {
 
 
 //Sign up
-server.post('/users/signup', (req, res) => {
+server.post('/api/v1/users/signup', (req, res) => {
     // 클라이언트로부터 받은 정보를 콘솔에 출력
     console.log('Received signup request:')
     console.log(JSON.stringify(req.body, null, 2))
