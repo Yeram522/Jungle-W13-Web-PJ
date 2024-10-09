@@ -38,8 +38,6 @@ public class MemberController {
 
     @PostMapping("login")
     public ApiResponse<Object> login(@RequestBody MemberDtos.MemberLoginDto loginDto) {
-        System.out.println(loginDto.getEmail());
-        System.out.println(loginDto.getPassword());
         boolean isSuccessful = memberService.login(loginDto);
         return ApiResponse.ofSuccess(isSuccessful);
     }
