@@ -1,5 +1,6 @@
 package jungle.board.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +8,12 @@ import lombok.Setter;
 public class PostDtos {
 
     @Getter @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PostRequest {
-        @JsonProperty("post_title")
+        @JsonProperty("post-title")
         private String postTitle;
 
-        @JsonProperty("post_content")
+        @JsonProperty("post-content")
         private String postContent;
     }
 

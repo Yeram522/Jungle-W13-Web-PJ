@@ -41,7 +41,7 @@ document.getElementById('submit').addEventListener('click', async(event) => {
         if(response.data)
         {
             alert("게시글이 정상적으로 등록 되었습니다.")
-            window.location.href = "pages/board_list.html"; //게시물 리스트로 돌아가기.
+            window.location.href = "../pages/board_list.html"; //게시물 리스트로 돌아가기.
         }
         else{
             alert("게시글 등록 중 오류가 발생했습니다.")
