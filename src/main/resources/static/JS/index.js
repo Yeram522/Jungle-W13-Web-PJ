@@ -1,5 +1,5 @@
 async function login(username, password) {
-  const url = 'http://localhost:3000/api/login';  // Spring 서버 URL 사용
+  const url = 'http://localhost:3000/users/login';  // Spring 서버 URL 사용
   
   const loginData = { username, password };
 
@@ -18,7 +18,7 @@ async function login(username, password) {
     console.log('Server response:', data);
 
     return data;  // Spring 서버의 응답을 그대로 반환
-    
+
   } catch (error) {
     console.error('Login error:', error);
     return { successful: false, message: error.message };
