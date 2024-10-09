@@ -6,8 +6,6 @@ import jungle.board.dto.PostDtos;
 import jungle.board.dto.PostListWrapperDto;
 import jungle.board.dto.PostWrapperDto;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostController {
 
-    private static final Logger log = LoggerFactory.getLogger(PostController.class);
     private final PostService postService;
 
     @PostMapping("/posts")
