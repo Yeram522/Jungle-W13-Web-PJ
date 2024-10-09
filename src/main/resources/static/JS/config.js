@@ -1,7 +1,7 @@
 // config.js 파일
 
 // 기본 URL 설정
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:8080';
 
 // API 버전
 const API_VERSION = 'v1';

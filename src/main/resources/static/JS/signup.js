@@ -210,7 +210,7 @@ function isStrongPassword(password) {
 
 async function sendUserInfoToServer(userInfo) {
     try {
-        const response = await fetch(API_ENDPOINTS.SIGUP, {
+        const response = await fetch(API_ENDPOINTS.SIGNUP, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userInfo)
