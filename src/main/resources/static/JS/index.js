@@ -34,15 +34,15 @@ document.getElementById('btnLogin').addEventListener('click', async (event) => {
   const result = await login(username, password);
   if (result.successful) {
     console.log('Login successful');
-     // 입력 필드 초기화
-    document.getElementById('username').value = '';
-    document.getElementById('password').value = '';
+    window.location.href = "pages/board_list.html";
   } else {
     console.log('Login failed:', result.message);
     // 로그인 실패 처리 (예: 에러 메시지 표시)
+    alert("로그인 실패!");
   }
  
 });
+
 function openSignUpPopup() {
     const width = 500;
     const height = 500;
