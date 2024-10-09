@@ -66,6 +66,13 @@ button {
     align-items: center;
 }
 
+.duplicateCheckMsg {
+    padding: 1px 1px;
+    margin-top: 1px;
+    font-size: 13px;
+    color: red;
+}
+
 .btn {
     padding: 1px 1px;
     margin-top: 5px;
