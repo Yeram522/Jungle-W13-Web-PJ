@@ -22,11 +22,14 @@ public class Post {
     @Column(nullable = false)
     private String postTitle;
 
-    @Column(nullable = true, length = 5000)
+    @Column(nullable = false, length = 5000)
     private String postContent;
 
     @Column(nullable = false)
     private String postDate;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "member_id")
@@ -43,7 +46,4 @@ public class Post {
         this.postContent = postContent;
         this.postDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
     }
-
-//    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Comment> comments = new ArrayList<>();
 }
