@@ -25,13 +25,15 @@ public class MemberController {
     @GetMapping("/{email}/duplicate")
     public ApiResponse<Object> isEmailDuplicate(@PathVariable String email) {
         boolean isDuplicate = memberService.isEmailDuplicate(email);
-        return ApiResponse.ofSuccess(!isDuplicate);
+        boolean isSuccessful = !isDuplicate;
+        return ApiResponse.ofSuccess(isSuccessful);
     }
 
     @GetMapping("/{username}/username-duplicate")
     public ApiResponse<Object> isUsernameDuplicate(@PathVariable String username) {
         boolean isDuplicate = memberService.isUsernameDuplicate(username);
-        return ApiResponse.ofSuccess(!isDuplicate);
+        boolean isSuccessful = !isDuplicate;
+        return ApiResponse.ofSuccess(isSuccessful);
     }
 
     @PostMapping("login")

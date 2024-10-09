@@ -1,5 +1,5 @@
 async function login(username, password) {
-  const url = 'http://localhost:3000/users/login';  // Spring 서버 URL 사용
+  const url = 'http://localhost:8080/users/login';  // Spring 서버 URL 사용
   
   const loginData = { username, password };
 
