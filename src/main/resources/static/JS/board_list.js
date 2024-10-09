@@ -20,18 +20,19 @@ async function requestBoardList() {
 }
 
 // 게시물 목록을 테이블에 추가하는 함수
-function renderBoardList(data) {
+function renderBoardList(response) {
     const tbody = document.querySelector('.board-list');
     if (!tbody) {
         console.error('content-group 요소를 찾을 수 없습니다.');
         return;
     }
 
+    logPosts(response.data);
     tbody.innerHTML = ''; // 기존 내용 초기화
 
-    if (data.successful && data.posts && data.posts.length > 0) {
+    if (response.data.successful && response.data.posts && response.data.posts.length > 0) {
         const fragment = document.createDocumentFragment();
-        data.posts.forEach(post => {
+        response.data.posts.forEach(post => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${post.id}</td>
@@ -80,14 +81,14 @@ function logPosts(data) {
 async function loadBoardList() {
     try {
         // 실제 서버 요청 사용 시:
-        const data = await requestBoardList();
+        const response = await requestBoardList();
 
         // 테스트용 더미 데이터
         //const dummyResponse = `{"successful":true,"posts":[{"id":1,"postTitle":"title","postContent":"contentcontentcontent","postDate":"2024-10-09 09:23:04"},{"id":2,"postTitle":"제목입니다앗","postContent":"이건 내용임","postDate":"2024-10-09 09:23:26"}],"message":"성공"}`;
         //const data = JSON.parse(dummyResponse);
 
         //logPosts(data); // 디버깅용 로그
-        renderBoardList(data);
+        renderBoardList(response);
     } catch (error) {
         console.error('게시판 로딩 중 오류 발생:', error);
         document.querySelector('.content-group').innerHTML = '<tr><td colspan="5">게시물을 불러오는 중 오류가 발생했습니다.</td></tr>';
